@@ -10,16 +10,35 @@ public class Vector2D {
 		this.y = y;
 	}
 
+	public Vector2D add(Vector2D otherVector) {
+		return new Vector2D(x + otherVector.x, y + otherVector.y);
+	}
+
+	public Vector2D subtract(Vector2D otherVector) {
+		return add(otherVector.opposite());
+	}
+
+	public Vector2D opposite() {
+		return new Vector2D(-x, -y);
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("(%d, %d)", x, y);
+		return "(" + x + ", " + y + ")";
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Vector2D vector2D = (Vector2D) o;
+		if (!(o instanceof Vector2D vector2D)) return false;
 		return x == vector2D.x && y == vector2D.y;
 	}
 
@@ -28,15 +47,4 @@ public class Vector2D {
 		return Objects.hash(x, y);
 	}
 
-	public Vector2D add(Vector2D vector2D) {
-		return new Vector2D(x + vector2D.x, y + vector2D.y);
-	}
-
-	public Vector2D opposite() {
-		return new Vector2D(-x, -y);
-	}
-
-	public Vector2D subtract(Vector2D vector2D) {
-		return add(vector2D.opposite());
-	}
 }

@@ -22,7 +22,7 @@ class Vector2DTest {
 
 	@Test
 	void add() {
-		assertEquals(new Vector2D(3, 8), vector1.add(vector3));
+		assertEquals(new Vector2D(3, 7), vector1.add(vector3));
 	}
 
 	@Test
