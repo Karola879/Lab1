@@ -11,12 +11,17 @@ public class Genome {
     private final Random random = new Random();
 
     public Genome(){
-        new Random().ints(GENOME_LENGTH, 0, MapDirection.values().length)
+        new Random()
+                .ints(GENOME_LENGTH, 0, MapDirection.values().length)
                 .forEach(i -> genome.add(MapDirection.values()[i]));
     }
 
     public Genome(Genome mother, Genome father) {
         int split = random.nextInt(GENOME_LENGTH - 2) + 1;
         IntStream.range(0, GENOME_LENGTH).forEach(i -> genome.add((i <= split ? mother : father).genome.get(i)));
+    }
+
+    public MapDirection getRandomMove() {
+        return genome.get(random.nextInt(GENOME_LENGTH));
     }
 }

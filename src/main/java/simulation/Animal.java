@@ -68,6 +68,10 @@ public class Animal implements Comparable<Animal>{
 		return position;
 	}
 
+	public void moveBasedOnGenome() {
+		move(genome.getRandomMove());
+	}
+
 	public void move(MapDirection direction) {
 		position = pbc(position.add(direction.getUnitVector()));
 		System.out.println("Animal " + animalId+ " moved " + direction + "; new position is "
@@ -83,10 +87,10 @@ public class Animal implements Comparable<Animal>{
 	private Vector2D pbc(Vector2D position) {
 		int width = Simulation.getMap().getWidth();
 		int height = Simulation.getMap().getHeight();
-		if (position.getX() >= width) return position.subtract(new Vector2D(width, 0));
-		if (position.getX() < 0) return position.add(new Vector2D(width, 0));
-		if (position.getY() >= height) return position.subtract(new Vector2D(0, height));
-		if (position.getY() < 0) return position.add(new Vector2D(0, height));
+		if (position.x() >= width) return position.subtract(new Vector2D(width, 0));
+		if (position.x() < 0) return position.add(new Vector2D(width, 0));
+		if (position.y() >= height) return position.subtract(new Vector2D(0, height));
+		if (position.y() < 0) return position.add(new Vector2D(0, height));
 
 		return position;
 	}

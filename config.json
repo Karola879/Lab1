@@ -1,0 +1,9 @@
+{
+  "width": 30,
+  "height": 20,
+  "noOfAnimals": 100,
+  "noOfPlants": 500,
+  "animalEnergy": 50,
+  "plantEnergy": 20,
+  "speed": 5
+}

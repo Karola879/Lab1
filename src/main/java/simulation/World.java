@@ -1,7 +1,5 @@
 package simulation;
 
-import java.util.Random;
-
 public class World {
 	private static final int DAYS_NO=15;
 
